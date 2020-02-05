@@ -36,3 +36,9 @@ class GoodReads():
         xml_isbns = soup.findAll('isbn13')
         isbns = [isbn.getText() for isbn in xml_isbns]
         return isbns
+
+    def parse_titles(self, shelf):
+        soup = BeautifulSoup(shelf)
+        xml_titles = soup.findAll('title_without_series')
+        titles = [title.getText() for title in xml_titles]
+        return titles
